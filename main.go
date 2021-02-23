@@ -23,7 +23,6 @@ func main() {
 	fmt.Scanln(&keySecret)
 
 	// Log into binance
-	binance.UseTestnet = true
 	client := binance.NewClient(keyId, keySecret)
 
 	// Correct time issues
