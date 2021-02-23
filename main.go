@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"flag"
 	"fmt"
 	"strconv"
 	"strings"
@@ -12,18 +13,23 @@ import (
 
 func main() {
 
+	// Check for flags
+	test := flag.Bool("test", false, "use binance test api")
+	flag.Parse()
+
 	// Get users API keys
-	var keyId string
+	var keyID string
 	var keySecret string
 
 	fmt.Println("Enter Binance API Key ID: ")
-	fmt.Scanln(&keyId)
+	fmt.Scanln(&keyID)
 
 	fmt.Println("\nEnter Binance API Key Secret: ")
 	fmt.Scanln(&keySecret)
 
 	// Log into binance
-	client := binance.NewClient(keyId, keySecret)
+	binance.UseTestnet = *test
+	client := binance.NewClient(keyID, keySecret)
 
 	// Correct time issues
 	client.NewSetServerTimeService().Do(context.Background())
@@ -34,7 +40,6 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	// fmt.Printf("%+v\n", res)
 
 	// Get base coin to use for trade
 	var baseCoin string

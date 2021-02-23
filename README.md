@@ -1,6 +1,8 @@
 # binance-quicktrade
 a bot to help beginner make a quick trade on binance.com
 
+![build](https://github.com/github/docs/actions/workflows/build.yml/badge.svg)![release](https://github.com/github/docs/actions/workflows/release.yml/badge.svg)
+
 ## Background
 
 After being invited to a few trading discords thanks to my [discord stock tickers](https://github.com/rssnyder/discord-stock-ticker), I started getting spam in my DMs for people selling access to other servers, and bots to help you make money from "pump and dumps".
@@ -88,6 +90,10 @@ If you specify the time limit and it is reached, your limit order will be cancel
 Download the program for your operating system from the [release page](https://github.com/rssnyder/binance-quicktrade/releases).
 
 Navigate to where you store the binary, and execute it. You should have a [binance API key](https://www.binance.com/en/support/faq/360002502072-How-to-create-API) ready to go.
+
+## Testing
+
+You should test the program before production use by using the [binance test api](https://academy.binance.com/en/articles/binance-api-series-pt-1-spot-trading-with-postman). You can pass the `-test` flag to enable use of the testnet
 
 ## Support
 
